@@ -30,7 +30,7 @@ from pydantic import BaseModel, Field, validator
 LOOKBACK = 48
 N_FEATURES = 21  # 20 features + 1 target (current_pod_count)
 PREDICTION_HORIZON_MIN = 5
-SAFETY_BUFFER = 1.1
+SAFETY_BUFFER = 1.0  # Reduced from 1.1 to minimize over-provisioning
 
 # Feature order MUST match training exactly
 # First 20 are features, last one is the target (pod_count) used as input feature
@@ -217,8 +217,8 @@ async def predict(req: PredictRequest):
         # CRITICAL: Inverse transform to get actual pod count
         pred_pods_float = inverse_scale_prediction(raw_pred)
         
-        # Apply safety buffer and round up
-        predicted_pods = max(1, int(np.ceil(pred_pods_float * SAFETY_BUFFER)))
+        # Round to nearest integer (removed ceil to reduce over-provisioning)
+        predicted_pods = max(1, round(pred_pods_float * SAFETY_BUFFER))
         
         total_ms = (time.perf_counter() - t0) * 1000.0
         
