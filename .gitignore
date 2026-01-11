@@ -79,3 +79,7 @@ htmlcov/
 .cache/
 tmp/
 temp/
+
+# images
+images/
+
