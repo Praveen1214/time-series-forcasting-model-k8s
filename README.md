@@ -4,10 +4,10 @@ A production-ready deep learning solution for predictive Kubernetes autoscaling.
 
 ## 🚀 Key Features
 
-*   **Proactive Scaling**: Forecasts load 1-minute ahead to prevent bottlenecks.
+*   **Proactive Scaling**: Forecasts load 5-minute ahead to prevent bottlenecks.
 *   **Multi-Model Support**: Includes Informer, LSTM, BiLSTM, TCN, Prophet, and a **Hybrid (Prophet + LSTM)** model.
 *   **Production API**: Fast, containerized API for real-time inference.
-*   **Hybrid Evaluation**: Robust comparison against standard HPA metrics.
+*   **Evaluation**: Robust comparison against standard HPA metrics.
 
 ## 📂 Project Structure
 
