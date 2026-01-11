@@ -12,7 +12,7 @@ A production-ready deep learning solution for predictive Kubernetes autoscaling.
 ## 📂 Project Structure
 
 ```
-informer-k8s-autoscaling/
+time-series-forcasting-model-k8s/
 ├── api/                   # Inference API (FastAPI)
 │   ├── main.py           # Server entry point
 │   └── requirements.txt  # API dependencies
@@ -31,7 +31,7 @@ informer-k8s-autoscaling/
 1.  **Clone the repository**
     ```bash
     git clone <repo-url>
-    cd informer-k8s-autoscaling
+    cd time-series-forcasting-model-k8s
     ```
 
 2.  **Install Dependencies**
