@@ -1,0 +1,46 @@
+# Git
+.git
+.gitignore
+
+# Python
+__pycache__
+*.pyc
+*.pyo
+*.egg-info
+.eggs
+dist
+build
+*.egg
+
+# Notebooks & models we don't need
+notebooks/models/fbprophet-*.json
+notebooks/models/informer-*.keras
+notebooks/models/informer-*.pkl
+notebooks/models/lstm-*.keras
+notebooks/models/tcn-*.keras
+notebooks/models/tcn-*.pkl
+notebooks/models/*_best.keras
+*.ipynb
+
+# IDE & OS
+.vscode
+.idea
+*.swp
+*.swo
+Thumbs.db
+.DS_Store
+
+# Docs (not needed in image)
+*.md
+LICENSE
+help.md
+report.md
+
+# Data we don't copy via COPY anyway
+data/training_history.csv
+
+# Configs (if not needed)
+configs/
+
+# Gemini
+.gemini/
