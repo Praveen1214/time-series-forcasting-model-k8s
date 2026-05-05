@@ -80,8 +80,14 @@ COPY --chown=appuser:appuser data/data.csv /app/data/data.csv
 USER appuser
 
 # Environment variables (paths match where we copied files)
+# ── Model / data paths ──────────────────────────────────────────────────────
 ENV MODEL_PATH=/app/models/bilstm-pods-20260104_012142.keras \
     SCALERS_PATH=/app/models/bilstm-scalers-20260104_012142.pkl
+# ── Service URLs (override at runtime with -e or a K8s ConfigMap) ───────────
+# ML_API_URL  : base URL of the FastAPI inference API
+# EXECUTOR_URL: full URL of the Node.js K8s scaling executor endpoint
+ENV ML_API_URL=https://k8s-model-api.whiteglacier-fec535bb.southeastasia.azurecontainerapps.io \
+    EXECUTOR_URL=http://localhost:6000/api/v1/scale-with-metrics
 
 # Expose port
 EXPOSE 8000
